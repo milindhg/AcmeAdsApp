@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="AcmeDB">
+  <DataContextMoniker Name="/AcmeDBDataContext" />
+  <nestedChildShapes>
+    <classShape Id="32676271-75e3-49f4-8800-b9b231538af7" absoluteBounds="5.125, 1.875, 2, 1.3862939453124998">
+      <DataClassMoniker Name="/AcmeDBDataContext/AdNewspaper" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5a3220ef-e4d3-4db8-bb6c-b363a8b70d43" absoluteBounds="5.1400000000000006, 2.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="80d0988e-ef7e-44e9-8e83-474ef10ecb16" absoluteBounds="2.375, 1.125, 2, 1.3862939453124998">
+      <DataClassMoniker Name="/AcmeDBDataContext/NewsPaper" />
+      <nestedChildShapes>
+        <elementListCompartment Id="90ab1762-fa3b-4fbf-a354-139cf8da2981" absoluteBounds="2.39, 1.585, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d222c0bc-8332-41ee-aff2-96fcadcfee73" absoluteBounds="1.625, 3, 2, 1.7708968098958327">
+      <DataClassMoniker Name="/AcmeDBDataContext/Advertisement" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e1acfec6-d8b6-4fd8-87ea-aefd938b6a40" absoluteBounds="1.6400000000000001, 3.46, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4.375 : 2.19314697265625); (5.125 : 2.19314697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/AcmeDBDataContext/NewsPaper/NewsPaper_AdNewspaper" />
+      <nodes>
+        <classShapeMoniker Id="80d0988e-ef7e-44e9-8e83-474ef10ecb16" />
+        <classShapeMoniker Id="32676271-75e3-49f4-8800-b9b231538af7" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3.625 : 4.01609587760417); (6.125 : 4.01609587760417); (6.125 : 3.2612939453125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/AcmeDBDataContext/Advertisement/Advertisement_AdNewspaper" />
+      <nodes>
+        <classShapeMoniker Id="d222c0bc-8332-41ee-aff2-96fcadcfee73" />
+        <classShapeMoniker Id="32676271-75e3-49f4-8800-b9b231538af7" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

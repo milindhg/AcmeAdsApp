@@ -33,10 +33,10 @@ namespace AcmeApp.Controllers
         public ActionResult Index()
         {
             IList<AdvertisementModel> adList = new List<AdvertisementModel>();
-            //var query = from ad in context.Advertisements
-            //            join adnewspaperrel in context.AdNewspapers
-            //            on ad.ID=AdNewspaper
-            //            select ad;
+            var query = from ad in context.Advertisements
+                        join adnewspaperrel in context.AdNewspapers
+                        on ad.ID equals adnewspaperrel.AdId
+                        select ad;
             var ads = query.ToList();
             foreach (var adData in ads)
             {
@@ -48,7 +48,6 @@ namespace AcmeApp.Controllers
                     PublishDate = adData.PublishDate,
                     Text = adData.Text
                 });
-
             }
             return View(adList);
         }

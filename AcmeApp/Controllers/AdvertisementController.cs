@@ -16,14 +16,27 @@ namespace AcmeApp.Controllers
             context = new AcmeDBDataContext();
         }
 
+
+        private void PrepareNewspaper(AdvertisementModel model)
+        {
+            model.Newspapers = context.NewsPapers.AsQueryable<NewsPaper>().Select(x =>
+                new SelectListItem()
+                {
+                    Text = x.Name,
+                    Value = x.PaperId.ToString()
+                });
+        }
+
         //
         // GET: /Advertisement/
 
         public ActionResult Index()
         {
             IList<AdvertisementModel> adList = new List<AdvertisementModel>();
-            var query = from ad in context.Advertisements
-                        select ad;
+            //var query = from ad in context.Advertisements
+            //            join adnewspaperrel in context.AdNewspapers
+            //            on ad.ID=AdNewspaper
+            //            select ad;
             var ads = query.ToList();
             foreach (var adData in ads)
             {

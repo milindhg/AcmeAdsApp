@@ -78,7 +78,16 @@ namespace AcmeApp.Controllers
 
         public ActionResult Details(int id)
         {
-            return View();
+            AdvertisementModel model = new AdvertisementModel();
+            var result = context.AdvertisementSelectRow(id).SingleOrDefault();
+            model.AdId = result.ID;
+            model.AdName = result.AdName;
+            model.AddDate = result.AddDate;
+            model.PublishDate = result.PublishDate;
+            model.Text = result.Text;
+            model.NewsPaperId = result.NewsPaperId;
+            model.PaperName = result.Name;
+            return View(model);
         }
 
         //
@@ -142,17 +151,26 @@ namespace AcmeApp.Controllers
         // POST: /Advertisement/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(AdvertisementModel model)
         {
             try
             {
-                // TODO: Add update logic here
+                Advertisement ad = new Advertisement()
+                {
+                    ID = model.AdId,
+                    AdName = model.AdName,
+                    AddDate = model.AddDate,
+                    PublishDate = model.PublishDate,
+                    Text = model.Text,
+                    NewsPaperId = model.NewsPaperId
+                };
 
+                context.AdvertisementUpdateRow(model.AdId,model.AdName, model.Text, model.PublishDate, model.AddDate, model.NewsPaperId);
                 return RedirectToAction("Index");
             }
             catch
             {
-                return View();
+                return View(model);
             }
         }
 
@@ -161,7 +179,9 @@ namespace AcmeApp.Controllers
 
         public ActionResult Delete(int id)
         {
-            return View();
+            context.AdvertisementDeleteRow(id);
+            return RedirectToAction("Index");
+            //return View();
         }
 
         //

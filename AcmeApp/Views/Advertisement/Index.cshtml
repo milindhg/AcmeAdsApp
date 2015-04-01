@@ -53,16 +53,16 @@
         <td>
             @Html.DisplayFor(modelItem => item.AddDate)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.NewsPaperId)
-        </td>
+        </td>*@
         <td>
             @Html.DisplayFor(modelItem => item.PaperName)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", item.AdId) |
-            @Html.ActionLink("Details", "Details", item.AdId ) |
-            @Html.ActionLink("Delete", "Delete", new { item.AdId })
+            @Html.ActionLink("Edit", "Edit", new { id=item.AdId }) |
+            @Html.ActionLink("Details", "Details", new { id = item.AdId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.AdId })
         </td>
     </tr>
 }

@@ -326,6 +326,7 @@
     <Content Include="Views\Newspaper\Index.cshtml" />
     <Content Include="Views\Advertisement\Index.cshtml" />
     <Content Include="Views\Advertisement\Edit.cshtml" />
+    <Content Include="Views\Advertisement\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />

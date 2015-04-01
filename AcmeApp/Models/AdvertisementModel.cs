@@ -15,7 +15,7 @@ namespace AcmeApp.Models
         public DateTime PublishDate { get; set; }
         public DateTime AddDate { get; set; }
         [DisplayName("Newspaper")]
-        public int PaperId { get; set; }
+        public int NewsPaperId { get; set; }
         public string PaperName { get; set; }
         public IEnumerable<SelectListItem> Newspapers { get; set; }
     }

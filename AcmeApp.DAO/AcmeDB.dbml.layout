@@ -2,36 +2,23 @@
 <ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="AcmeDB">
   <DataContextMoniker Name="/AcmeDBDataContext" />
   <nestedChildShapes>
-    <classShape Id="48c94e5d-da43-4897-aafe-f43bc47e5981" absoluteBounds="4.125, 1.375, 2, 1.3862939453124996">
-      <DataClassMoniker Name="/AcmeDBDataContext/AdNewspaper" />
-      <nestedChildShapes>
-        <elementListCompartment Id="6cd91a96-4038-4dd7-a259-8dc1af117f1b" absoluteBounds="4.14, 1.835, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="18845ffa-e579-46f9-956c-cdf395f62cf3" absoluteBounds="3.25, 3.375, 2, 1.7708968098958327">
+    <classShape Id="b2c74599-3bf1-478b-8345-ff55b3bee169" absoluteBounds="3.5, 0.875, 2, 1.9631982421875">
       <DataClassMoniker Name="/AcmeDBDataContext/Advertisement" />
       <nestedChildShapes>
-        <elementListCompartment Id="ce8d75e9-fd6f-4ee5-b89f-3aef8436a6c1" absoluteBounds="3.265, 3.835, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="5c84d371-727e-48a7-828c-3d37de8fb4f2" absoluteBounds="3.515, 1.335, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="eaf8aa83-3144-446e-b9a7-fffea963e53f" absoluteBounds="1.375, 1.375, 2, 1.3862939453124996">
+    <classShape Id="41d6cd2c-9af5-43d4-9bd1-c2a7f964a919" absoluteBounds="0.75, 1.25, 2, 1.3862939453125">
       <DataClassMoniker Name="/AcmeDBDataContext/NewsPaper" />
       <nestedChildShapes>
-        <elementListCompartment Id="1756a4cd-de51-4cdf-a1bc-32cd099dbac1" absoluteBounds="1.3900000000000001, 1.835, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="5a5f4095-de62-48dd-abba-8aec797fd351" absoluteBounds="0.765, 1.71, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(4.6875 : 3.375); (4.6875 : 2.7612939453125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/AcmeDBDataContext/Advertisement/Advertisement_AdNewspaper" />
+    <associationConnector edgePoints="[(2.75 : 1.94314697265625); (3.5 : 1.94314697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/AcmeDBDataContext/NewsPaper/NewsPaper_Advertisement" />
       <nodes>
-        <classShapeMoniker Id="18845ffa-e579-46f9-956c-cdf395f62cf3" />
-        <classShapeMoniker Id="48c94e5d-da43-4897-aafe-f43bc47e5981" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(3.375 : 2.06814697265625); (4.125 : 2.06814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/AcmeDBDataContext/NewsPaper/NewsPaper_AdNewspaper" />
-      <nodes>
-        <classShapeMoniker Id="eaf8aa83-3144-446e-b9a7-fffea963e53f" />
-        <classShapeMoniker Id="48c94e5d-da43-4897-aafe-f43bc47e5981" />
+        <classShapeMoniker Id="41d6cd2c-9af5-43d4-9bd1-c2a7f964a919" />
+        <classShapeMoniker Id="b2c74599-3bf1-478b-8345-ff55b3bee169" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>

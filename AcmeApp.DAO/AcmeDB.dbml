@@ -1,14 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="AcmeDB" Class="AcmeDBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\Users\mgokhale\Documents\GitHub\AcmeApp\AcmeApp\App_Data\AcmeDB.mdf;Integrated Security=True" SettingsObjectName="AcmeApp.DAO.Properties.Settings" SettingsPropertyName="AcmeDBConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.AdNewspaper" Member="AdNewspapers">
-    <Type Name="AdNewspaper">
-      <Column Name="RelationId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="AdId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="PaperId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="Advertisement_AdNewspaper" Member="Advertisement" ThisKey="AdId" OtherKey="ID" Type="Advertisement" IsForeignKey="true" />
-      <Association Name="NewsPaper_AdNewspaper" Member="NewsPaper" ThisKey="PaperId" OtherKey="PaperId" Type="NewsPaper" IsForeignKey="true" />
-    </Type>
-  </Table>
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=F:\Users\Milind\Documents\GitHub\AcmeApp\AcmeApp\App_Data\AcmeDB.mdf;Integrated Security=True" SettingsObjectName="AcmeApp.DAO.Properties.Settings" SettingsPropertyName="AcmeDBConnectionString1" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Advertisement" Member="Advertisements">
     <Type Name="Advertisement">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -16,7 +7,8 @@
       <Column Name="Text" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
       <Column Name="PublishDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="AddDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Association Name="Advertisement_AdNewspaper" Member="AdNewspapers" ThisKey="ID" OtherKey="AdId" Type="AdNewspaper" />
+      <Column Name="NewsPaperId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="NewsPaper_Advertisement" Member="NewsPaper" ThisKey="NewsPaperId" OtherKey="PaperId" Type="NewsPaper" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.NewsPaper" Member="NewsPapers">
@@ -24,7 +16,7 @@
       <Column Name="PaperId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="AddDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Association Name="NewsPaper_AdNewspaper" Member="AdNewspapers" ThisKey="PaperId" OtherKey="PaperId" Type="AdNewspaper" />
+      <Association Name="NewsPaper_Advertisement" Member="Advertisements" ThisKey="PaperId" OtherKey="NewsPaperId" Type="Advertisement" />
     </Type>
   </Table>
   <Function Name="dbo.AdNewspaperDeleteRow" Method="AdNewspaperDeleteRow">

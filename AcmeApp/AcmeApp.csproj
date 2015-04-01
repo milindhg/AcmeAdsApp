@@ -322,9 +322,10 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Advertisement\Create.cshtml" />
-    <Content Include="Views\Advertisement\Index.cshtml" />
     <Content Include="Views\Newspaper\Create.cshtml" />
     <Content Include="Views\Newspaper\Index.cshtml" />
+    <Content Include="Views\Advertisement\Index.cshtml" />
+    <Content Include="Views\Advertisement\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />

@@ -1,11 +1,11 @@
 ﻿@model AcmeApp.Models.AdvertisementModel
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Edit";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Create</h2>
+<h2>Edit</h2>
 
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
@@ -14,13 +14,13 @@
     <fieldset>
         <legend>AdvertisementModel</legend>
 
-        @*<div class="editor-label">
+        <div class="editor-label">
             @Html.LabelFor(model => model.AdId)
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.AdId)
             @Html.ValidationMessageFor(model => model.AdId)
-        </div>*@
+        </div>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.AdName)
@@ -53,6 +53,22 @@
             @Html.EditorFor(model => model.AddDate)
             @Html.ValidationMessageFor(model => model.AddDate)
         </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NewsPaperId)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.NewsPaperId)
+            @Html.ValidationMessageFor(model => model.NewsPaperId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PaperName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PaperName)
+            @Html.ValidationMessageFor(model => model.PaperName)
+        </div>
         <div class="editor-label">
             @Html.LabelFor(model => model.NewsPaperId)
         </div>
@@ -61,7 +77,7 @@
         </div>
 
         <p>
-            <input type="submit" value="Create" />
+            <input type="submit" value="Save" />
         </p>
     </fieldset>
 }

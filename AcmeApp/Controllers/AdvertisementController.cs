@@ -33,24 +33,45 @@ namespace AcmeApp.Controllers
         public ActionResult Index()
         {
             IList<AdvertisementModel> adList = new List<AdvertisementModel>();
-            var query = from ad in context.Advertisements
-                        join adnewspaperrel in context.AdNewspapers
-                        on ad.ID equals adnewspaperrel.AdId
-                        select ad;
-            var ads = query.ToList();
-            foreach (var adData in ads)
-            {
-                adList.Add(new AdvertisementModel() 
-                {
-                    AdId = adData.ID,
-                    AdName = adData.AdName,
-                    AddDate = adData.AddDate,
-                    PublishDate = adData.PublishDate,
-                    Text = adData.Text
-                });
-            }
+            //var query = from ad in context.Advertisements
+            //            join newspaper in context.NewsPapers
+            //            on ad.NewsPaperId equals newspaper.PaperId
+            //            select new AdvertisementModel
+            //            {
+            //                AdName=ad.AdName,
+            //                AdId=ad.ID,
+            //                AddDate=ad.AddDate,
+            //                PublishDate=ad.PublishDate,
+            //                Text=ad.Text,
+            //                NewsPaperId=ad.NewsPaperId,
+            //                PaperName=newspaper.Name,
+                            
+            //            };
+            adList = getAdvertisements();
             return View(adList);
         }
+
+
+        public List<AdvertisementModel> getAdvertisements()
+        {
+            IList<AdvertisementModel> adList = new List<AdvertisementModel>();
+            AdvertisementModel ad;
+            var result = context.AdvertisementSelectAll();
+            foreach (var item in result)
+            {
+                ad = new AdvertisementModel();
+                ad.AdName = item.AdName;
+                ad.AdId = item.ID;
+                ad.AddDate = item.AddDate;
+                ad.PublishDate = item.PublishDate;
+                ad.Text = item.Text;
+                ad.NewsPaperId = item.NewsPaperId;
+                ad.PaperName = item.Name;
+                adList.Add(ad);
+            }
+            return adList.ToList();
+        }
+
 
         //
         // GET: /Advertisement/Details/5
@@ -66,7 +87,7 @@ namespace AcmeApp.Controllers
         public ActionResult Create()
         {
             AdvertisementModel model = new AdvertisementModel();
-
+            PrepareNewspaper(model);
             return View(model);
         }
 
@@ -84,11 +105,13 @@ namespace AcmeApp.Controllers
                     AdName = model.AdName,
                     AddDate = model.AddDate,
                     PublishDate = model.PublishDate,
-                    Text = model.Text
+                    Text = model.Text,
+                    NewsPaperId = model.NewsPaperId
                 };
 
-                context.Advertisements.InsertOnSubmit(ad);
-                context.SubmitChanges();
+                //context.Advertisements.InsertOnSubmit(ad);
+                context.AdvertisementInsertRow(model.AdName, model.Text, model.PublishDate, model.AddDate, model.NewsPaperId);
+                //context.SubmitChanges();
                 return RedirectToAction("Index");
             }
             catch
@@ -102,7 +125,17 @@ namespace AcmeApp.Controllers
 
         public ActionResult Edit(int id)
         {
-            return View();
+            AdvertisementModel model = new AdvertisementModel();
+            var result = context.AdvertisementSelectRow(id).SingleOrDefault();
+            model.AdId = result.ID;
+            model.AdName = result.AdName;
+            model.Text = result.Text;
+            model.AddDate = result.AddDate;
+            model.PublishDate = result.PublishDate;
+            model.NewsPaperId = result.NewsPaperId;
+            model.PaperName = result.Name;
+            PrepareNewspaper(model);
+            return View(model);
         }
 
         //

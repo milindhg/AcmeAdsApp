@@ -1,11 +1,11 @@
 ﻿@model AcmeApp.Models.AdvertisementModel
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Create Advertisement";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Create</h2>
+<h2>Create Advertisement</h2>
 
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
@@ -13,14 +13,6 @@
 
     <fieldset>
         <legend>AdvertisementModel</legend>
-
-        @*<div class="editor-label">
-            @Html.LabelFor(model => model.AdId)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.AdId)
-            @Html.ValidationMessageFor(model => model.AdId)
-        </div>*@
 
         <div class="editor-label">
             @Html.LabelFor(model => model.AdName)

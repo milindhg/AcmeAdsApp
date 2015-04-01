@@ -1,11 +1,11 @@
 ﻿@model AcmeApp.Models.NewspaperModel
 
 @{
-    ViewBag.Title = "Create Newspaper";
+    ViewBag.Title = "Edit Newspaper";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Create Newspaper</h2>
+<h2>Edit Newspaper</h2>
 
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
@@ -13,6 +13,8 @@
 
     <fieldset>
         <legend>NewspaperModel</legend>
+
+        @Html.HiddenFor(model => model.Id)
 
         <div class="editor-label">
             @Html.LabelFor(model => model.Name)
@@ -31,7 +33,7 @@
         </div>
 
         <p>
-            <input type="submit" value="Create" />
+            <input type="submit" value="Save" />
         </p>
     </fieldset>
 }

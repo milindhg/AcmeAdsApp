@@ -21,18 +21,16 @@ namespace AcmeApp.Controllers
         public ActionResult Index()
         {
             IList<NewspaperModel> newsList = new List<NewspaperModel>();
-            var query = from news in context.NewsPapers
-                        select news;
-            var newspapers = query.ToList();
-            foreach (var newsData in newspapers)
+            NewspaperModel newspaper;
+            var result = context.NewsPaperSelectAll();
+            foreach (var item in result)
             {
-                newsList.Add(new NewspaperModel()
-                {
-                    Id=newsData.PaperId,
-                    Name=newsData.Name,
-                    AddDate=newsData.AddDate
-                });
-            }
+                newspaper = new NewspaperModel();
+                newspaper.Id = item.PaperId;
+                newspaper.Name = item.Name;
+                newspaper.AddDate = item.AddDate;
+                newsList.Add(newspaper);
+            }            
             return View(newsList);
         }
 
@@ -41,7 +39,12 @@ namespace AcmeApp.Controllers
 
         public ActionResult Details(int id)
         {
-            return View();
+            var result = context.NewsPaperSelectRow(id).SingleOrDefault();
+            NewspaperModel model = new NewspaperModel();
+            model.Id = result.PaperId;
+            model.Name = result.Name;
+            model.AddDate = result.AddDate;
+            return View(model);
         }
 
         //
@@ -61,15 +64,7 @@ namespace AcmeApp.Controllers
         {
             try
             {
-                NewsPaper newspaper = new NewsPaper()
-                {
-                    PaperId = model.Id,
-                    Name = model.Name,
-                    AddDate = model.AddDate
-                };
-                context.NewsPapers.InsertOnSubmit(newspaper);
-                context.SubmitChanges();
-
+                context.NewsPaperInsertRow(model.Name,model.AddDate);
                 return RedirectToAction("Index");
             }
             catch
@@ -83,19 +78,23 @@ namespace AcmeApp.Controllers
 
         public ActionResult Edit(int id)
         {
-            return View();
+            NewspaperModel model = new NewspaperModel();
+            var result = context.NewsPaperSelectRow(id).SingleOrDefault();
+            model.Id = result.PaperId;
+            model.Name = result.Name;
+            model.AddDate = result.AddDate;
+            return View(model);
         }
 
         //
         // POST: /Newspaper/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(NewspaperModel model)
         {
             try
             {
-                // TODO: Add update logic here
-
+                context.NewsPaperUpdateRow(model.Id, model.Name, model.AddDate);
                 return RedirectToAction("Index");
             }
             catch
@@ -109,7 +108,8 @@ namespace AcmeApp.Controllers
 
         public ActionResult Delete(int id)
         {
-            return View();
+            context.NewsPaperDeleteRow(id);
+            return RedirectToAction("Index");
         }
 
         //

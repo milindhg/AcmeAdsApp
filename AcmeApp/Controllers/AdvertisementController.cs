@@ -33,20 +33,6 @@ namespace AcmeApp.Controllers
         public ActionResult Index()
         {
             IList<AdvertisementModel> adList = new List<AdvertisementModel>();
-            //var query = from ad in context.Advertisements
-            //            join newspaper in context.NewsPapers
-            //            on ad.NewsPaperId equals newspaper.PaperId
-            //            select new AdvertisementModel
-            //            {
-            //                AdName=ad.AdName,
-            //                AdId=ad.ID,
-            //                AddDate=ad.AddDate,
-            //                PublishDate=ad.PublishDate,
-            //                Text=ad.Text,
-            //                NewsPaperId=ad.NewsPaperId,
-            //                PaperName=newspaper.Name,
-                            
-            //            };
             adList = getAdvertisements();
             return View(adList);
         }
@@ -108,19 +94,7 @@ namespace AcmeApp.Controllers
         {
             try
             {
-                Advertisement ad = new Advertisement()
-                {
-                    ID = model.AdId,
-                    AdName = model.AdName,
-                    AddDate = model.AddDate,
-                    PublishDate = model.PublishDate,
-                    Text = model.Text,
-                    NewsPaperId = model.NewsPaperId
-                };
-
-                //context.Advertisements.InsertOnSubmit(ad);
                 context.AdvertisementInsertRow(model.AdName, model.Text, model.PublishDate, model.AddDate, model.NewsPaperId);
-                //context.SubmitChanges();
                 return RedirectToAction("Index");
             }
             catch

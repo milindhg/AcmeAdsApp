@@ -1,0 +1,70 @@
+﻿@model IEnumerable<AcmeApp.Models.AdvertisementModel>
+
+@{
+    ViewBag.Title = "Advertisements Listing";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Advertisements Listing</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        @*<th>
+            @Html.DisplayNameFor(model => model.AdId)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.AdName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Text)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PublishDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AddDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NewsPaperId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PaperName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.AdId)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.AdName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Text)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PublishDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AddDate)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.NewsPaperId)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.PaperName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.AdId }) |
+            @Html.ActionLink("Details", "Details", new { id = item.AdId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.AdId })
+        </td>
+    </tr>
+}
+
+</table>

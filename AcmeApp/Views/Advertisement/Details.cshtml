@@ -1,0 +1,65 @@
+﻿@model AcmeApp.Models.AdvertisementModel
+
+@{
+    ViewBag.Title = "Advertisement Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Advertisement Details</h2>
+
+<fieldset>
+    <legend>AdvertisementModel</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.AdId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.AdId)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.AdName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.AdName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Text)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Text)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PublishDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PublishDate)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.AddDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.AddDate)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.NewsPaperId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NewsPaperId)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PaperName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PaperName)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.AdId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

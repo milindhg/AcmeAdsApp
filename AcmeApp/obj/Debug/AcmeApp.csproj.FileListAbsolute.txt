@@ -244,3 +244,9 @@ F:\Users\Milind\Documents\GitHub\AcmeAdsApp\AcmeApp\bin\zh-Hant\System.Spatial.r
 F:\Users\Milind\Documents\GitHub\AcmeAdsApp\AcmeApp\obj\Debug\AcmeApp.csprojResolveAssemblyReference.cache
 F:\Users\Milind\Documents\GitHub\AcmeAdsApp\AcmeApp\obj\Debug\AcmeApp.dll
 F:\Users\Milind\Documents\GitHub\AcmeAdsApp\AcmeApp\obj\Debug\AcmeApp.pdb
+F:\Users\Milind\Documents\GitHub\AcmeAdsApp\AcmeApp\bin\System.Net.Http.Formatting.dll
+F:\Users\Milind\Documents\GitHub\AcmeAdsApp\AcmeApp\bin\System.Web.Http.dll
+F:\Users\Milind\Documents\GitHub\AcmeAdsApp\AcmeApp\bin\System.Web.Http.WebHost.dll
+F:\Users\Milind\Documents\GitHub\AcmeAdsApp\AcmeApp\bin\System.Net.Http.Formatting.xml
+F:\Users\Milind\Documents\GitHub\AcmeAdsApp\AcmeApp\bin\System.Web.Http.xml
+F:\Users\Milind\Documents\GitHub\AcmeAdsApp\AcmeApp\bin\System.Web.Http.WebHost.xml
